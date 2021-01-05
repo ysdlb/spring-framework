@@ -53,7 +53,7 @@ public class OriginalTest {
 		secondEnhancer.setCallback((MethodInterceptor) (o, method, objects, methodProxy) -> {
 			System.out.println("METHOD INTERCEPTOR AT SECOND PROXY");
 			// todo 这里 methodProxy invoke 入参 o 会导致无线循环调用, StackOverFlowError
-			// todo o 其实就是加强过的对象 secondEnhancer 自己
+			// todo o 其实就是加强过的对象 secondEnhancer 自己, o 用 proxy 表示更合适
 			return methodProxy.invoke(o, objects);
 		});
 
